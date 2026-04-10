@@ -1,19 +1,28 @@
+export const cityInfo = {
+  name: "Palembang",
+  province: "Sumatera Selatan",
+  description: "Bumi Sriwijaya - The Venice of the East",
+  founded: "683 AD",
+  tagline: "Palembang Emas",
+};
+
 export const categories = [
   { id: 'destinations', name: 'Destinations', icon: 'MapPin', subcategories: ['Nature', 'Culture', 'Religi', 'Family', 'Adventure'] },
   { id: 'stay', name: 'Accommodation', icon: 'Bed', subcategories: ['Luxury', 'Budget', 'Alternative'] },
   { id: 'food', name: 'Gastronomy', icon: 'Utensils', subcategories: ['Legendary', 'Fine Dining', 'Cafe', 'Street Food'] },
   { id: 'mobility', name: 'Mobility', icon: 'Car', subcategories: ['Rentals', 'Public Transit', 'Airport Transfer'] },
-  { id: 'essentials', name: 'Essentials', icon: 'ShieldCheck', subcategories: ['Health', 'Financial', 'Retail'] },
+  { id: 'essentials', name: 'Essentials', icon: 'ShieldCheck', subcategories: ['Health', 'Financial', 'Security', 'Retail'] },
   { id: 'events', name: 'Events', icon: 'Calendar', subcategories: ['Calendar', 'Seasonal'] },
 ];
 
 export const topSpots = [
+  // --- DESTINATIONS ---
   {
     id: 'ampera',
     name: 'Jembatan Ampera',
     category: 'destinations',
     subcategory: 'Culture',
-    description: 'Iconic bridge of Palembang spanning the Musi River.',
+    description: 'Ikon kota Palembang yang membentang di atas Sungai Musi.',
     rating: 4.8,
     reviews: 1240,
     distance: 1.2,
@@ -22,11 +31,37 @@ export const topSpots = [
     tags: ['Iconic', 'Landmark', 'View']
   },
   {
+    id: 'bkb',
+    name: 'Benteng Kuto Besak (BKB)',
+    category: 'destinations',
+    subcategory: 'Culture',
+    description: 'Benteng pertahanan abad ke-18 yang kini menjadi pusat rekreasi terbuka.',
+    rating: 4.5,
+    reviews: 920,
+    distance: 1.0,
+    sustainability: false,
+    image: '/images/bkb.png',
+    tags: ['History', 'Fortress', 'Open Space']
+  },
+  {
+    id: 'chengho',
+    name: 'Masjid Cheng Ho',
+    category: 'destinations',
+    subcategory: 'Religi',
+    description: 'Masjid dengan arsitektur perpaduan budaya Tiongkok, Melayu, dan Arab.',
+    rating: 4.7,
+    reviews: 580,
+    distance: 8.5,
+    sustainability: true,
+    image: '/images/chengho.png',
+    tags: ['Religious', 'Architecture', 'Culture']
+  },
+  {
     id: 'kemaro',
     name: 'Pulau Kemaro',
     category: 'destinations',
     subcategory: 'Culture',
-    description: 'Legendary island in the middle of Musi River with a multi-story pagoda.',
+    description: 'Pulau di tengah Sungai Musi dengan pagoda legendaris dan kisah cinta tragis.',
     rating: 4.6,
     reviews: 850,
     distance: 5.4,
@@ -35,24 +70,24 @@ export const topSpots = [
     tags: ['Culture', 'Legend', 'Temple']
   },
   {
-    id: 'alquran',
-    name: 'Al-Qur\'an Al-Akbar',
+    id: 'balaputradewa',
+    name: 'Museum Balaputradewa',
     category: 'destinations',
-    subcategory: 'Religi',
-    description: 'The world\'s largest carved wooden Al-Qur\'an.',
-    rating: 4.9,
-    reviews: 2100,
-    distance: 3.8,
+    subcategory: 'Culture',
+    description: 'Rumah bagi Rumah Limas asli yang tertera di uang kertas Rp10.000 lama.',
+    rating: 4.4,
+    reviews: 310,
+    distance: 4.2,
     sustainability: true,
-    image: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=800&auto=format&fit=crop',
-    tags: ['Religious', 'Craftsmanship', 'Art']
+    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800&auto=format&fit=crop',
+    tags: ['Education', 'History', 'Museum']
   },
   {
     id: 'puntikayu',
-    name: 'Punti Kayu Park',
+    name: 'Taman Wisata Alam Punti Kayu',
     category: 'destinations',
     subcategory: 'Nature',
-    description: 'Large pine forest and recreation park in the heart of the city.',
+    description: 'Hutan pinus dalam kota yang menawarkan area outbound dan rekreasi keluarga.',
     rating: 4.4,
     reviews: 620,
     distance: 7.1,
@@ -61,16 +96,276 @@ export const topSpots = [
     tags: ['Nature', 'Family', 'Pine']
   },
   {
+    id: 'alquran',
+    name: 'Al-Qur\'an Al-Akbar',
+    category: 'destinations',
+    subcategory: 'Religi',
+    description: 'Al-Qur\'an raksasa yang dipahat di atas kayu tembesu.',
+    rating: 4.9,
+    reviews: 2100,
+    distance: 3.8,
+    sustainability: true,
+    image: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=800&auto=format&fit=crop',
+    tags: ['Religious', 'Craftsmanship', 'Art']
+  },
+
+  // --- ACCOMMODATION ---
+  {
+    id: 'aryaduta',
+    name: 'The Aryaduta Palembang',
+    category: 'stay',
+    subcategory: 'Luxury',
+    description: 'Hotel Bintang 5 mewah berlokasi strategis di POM IX, Ilir Barat I.',
+    rating: 4.7,
+    reviews: 1500,
+    distance: 0.8,
+    sustainability: true,
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop',
+    tags: ['Luxury', 'Business', 'City Center']
+  },
+  {
+    id: 'arista',
+    name: 'Arista Hotel Palembang',
+    category: 'stay',
+    subcategory: 'Luxury',
+    description: 'Hotel Bintang 5 di pusat kota (Jl. Kapten A. Rivai) dengan fasilitas lengkap.',
+    rating: 4.6,
+    reviews: 1200,
+    distance: 1.5,
+    sustainability: false,
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop',
+    tags: ['Luxury', 'Strategic', 'Meetings']
+  },
+  {
+    id: 'wyndham',
+    name: 'Wyndham Opi Hotel',
+    category: 'stay',
+    subcategory: 'Luxury',
+    description: 'Hotel Bintang 5 di kawasan Jakabaring, dekat dengan venue olahraga international.',
+    rating: 4.8,
+    reviews: 800,
+    distance: 6.5,
+    sustainability: true,
+    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop',
+    tags: ['Luxury', 'Modern', 'Jakabaring']
+  },
+  {
+    id: 'the-zuri',
+    name: 'The Zuri Palembang',
+    category: 'stay',
+    subcategory: 'Luxury',
+    description: 'Hotel Bintang 4 modern di Transmart Kompleks dengan view kota yang indah.',
+    rating: 4.5,
+    reviews: 1100,
+    distance: 2.5,
+    sustainability: true,
+    image: '/images/the-zuri.png',
+    tags: ['Premium', 'Lifestyle', 'Shopping']
+  },
+  {
+    id: 'batiqa',
+    name: 'Batiqa Hotel',
+    category: 'stay',
+    subcategory: 'Budget',
+    description: 'Hotel Bintang 3 yang nyaman dan efisien di Jl. Kapten A. Rivai.',
+    rating: 4.3,
+    reviews: 600,
+    distance: 1.6,
+    sustainability: false,
+    image: '/images/batiqa.png',
+    tags: ['Value', 'Professional', 'Cozy']
+  },
+
+  // --- GASTRONOMY ---
+  {
     id: 'pempek-vico',
     name: 'Pempek Vico',
     category: 'food',
     subcategory: 'Legendary',
-    description: 'Famous shop for legendary Pempek, Palembang\'s signature dish.',
+    description: 'Spesialisasi Pempek & Es Kacang Merah di Jl. Letkol Iskandar.',
     rating: 4.7,
     reviews: 3400,
     distance: 0.5,
     sustainability: false,
     image: '/images/pempek.png',
-    tags: ['Local', 'Food', 'Signature']
+    tags: ['Legendary', 'Local', 'Signature']
+  },
+  {
+    id: 'pempek-candy',
+    name: 'Pempek Candy',
+    category: 'food',
+    subcategory: 'Legendary',
+    description: 'Pusat Pempek Paket & Oleh-oleh dengan beberapa cabang (Sudirman, Bandara).',
+    rating: 4.8,
+    reviews: 4200,
+    distance: 1.2,
+    sustainability: false,
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop',
+    tags: ['Gift', 'Popular', 'Service']
+  },
+  {
+    id: 'sri-melayu',
+    name: 'RM Sri Melayu',
+    category: 'food',
+    subcategory: 'Legendary',
+    description: 'Destinasi utama Pindang Patin & Masakan Khas Palembang di Jl. Demang Lebar Daun.',
+    rating: 4.6,
+    reviews: 1800,
+    distance: 3.5,
+    sustainability: true,
+    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop',
+    tags: ['Traditional', 'Family', 'Pindang']
+  },
+  {
+    id: 'riverside',
+    name: 'Riverside Restaurant',
+    category: 'food',
+    subcategory: 'Fine Dining',
+    description: 'Seafood & Pindang dengan view langsung Jembatan Ampera di Tepian Sungai Musi.',
+    rating: 4.5,
+    reviews: 950,
+    distance: 1.1,
+    sustainability: true,
+    image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=800&auto=format&fit=crop',
+    tags: ['Scenery', 'Premium', 'Riverfront']
+  },
+  {
+    id: 'mie-celor-26',
+    name: 'Mie Celor 26 Ilir H. Syafei',
+    category: 'food',
+    subcategory: 'Legendary',
+    description: 'Warung Mie Celor legendaris di Jl. KH Ahmad Dahlan yang wajib dikunjungi.',
+    rating: 4.7,
+    reviews: 1400,
+    distance: 1.8,
+    sustainability: false,
+    image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop',
+    tags: ['Legendary', 'Local Fav', 'Breakfast']
+  },
+  {
+    id: 'martabak-har',
+    name: 'Martabak HAR',
+    category: 'food',
+    subcategory: 'Legendary',
+    description: 'Martabak Kuah Kari khas Palembang yang fenomenal di Simpang Sekip/Jl. Sudirman.',
+    rating: 4.6,
+    reviews: 2100,
+    distance: 2.2,
+    sustainability: false,
+    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop',
+    tags: ['Curry', 'Iconic', 'Snack']
+  },
+
+  // --- ESSENTIALS: HEALTH ---
+  {
+    id: 'rsmh',
+    name: 'RSUP Dr. Mohammad Hoesin (RSMH)',
+    category: 'essentials',
+    subcategory: 'Health',
+    description: 'Rumah Sakit Umum Pusat rujukan utama di Jl. Jend. Sudirman.',
+    rating: 4.2,
+    reviews: 800,
+    distance: 2.8,
+    sustainability: false,
+    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop',
+    tags: ['General', 'Public', '24h'],
+    phone: '(0711) 354088'
+  },
+  {
+    id: 'siloam',
+    name: 'RS Siloam Sriwijaya',
+    category: 'essentials',
+    subcategory: 'Health',
+    description: 'Rumah sakit swasta modern berlokasi di Jl. POM IX dekat Palembang Icon.',
+    rating: 4.6,
+    reviews: 450,
+    distance: 0.9,
+    sustainability: true,
+    image: '/images/siloam.png',
+    tags: ['Modern', 'Private', '24h'],
+    phone: '(0711) 5229100'
+  },
+  {
+    id: 'charitas',
+    name: 'RS Charitas',
+    category: 'essentials',
+    subcategory: 'Health',
+    description: 'Salah satu rumah sakit tertua dan terpercaya di Jl. Jend. Sudirman.',
+    rating: 4.5,
+    reviews: 600,
+    distance: 2.1,
+    sustainability: false,
+    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop',
+    tags: ['History', 'Reliable', '24h'],
+    phone: '(0711) 353375'
+  },
+
+  // --- ESSENTIALS: FINANCIAL ---
+  {
+    id: 'bsb-pusat',
+    name: 'Bank Sumsel Babel (Kantor Pusat)',
+    category: 'essentials',
+    subcategory: 'Financial',
+    description: 'Kantor pusat bank daerah berlokasi di kawasan Jakabaring.',
+    rating: 4.7,
+    reviews: 150,
+    distance: 6.2,
+    sustainability: true,
+    image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?q=80&w=800&auto=format&fit=crop',
+    tags: ['Regional', 'Corporate', 'Bank']
+  },
+  {
+    id: 'bca-demang',
+    name: 'Bank BCA KCU Palembang',
+    category: 'essentials',
+    subcategory: 'Financial',
+    description: 'Kantor Cabang Utama BCA di Jl. Demang Lebar Daun.',
+    rating: 4.8,
+    reviews: 300,
+    distance: 3.4,
+    sustainability: false,
+    image: '/images/bca.png',
+    tags: ['Main', 'Service', 'ATM']
+  },
+  {
+    id: 'h-sabil-mc',
+    name: 'Haji Sabil Money Changer',
+    category: 'essentials',
+    subcategory: 'Financial',
+    description: 'Money changer terpercaya di Jl. Masjid Lama, 16 Ilir.',
+    rating: 4.4,
+    reviews: 80,
+    distance: 1.4,
+    sustainability: false,
+    image: 'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=800&auto=format&fit=crop',
+    tags: ['Currency', 'Trusted', 'Central']
+  },
+
+  // --- ESSENTIALS: SECURITY ---
+  {
+    id: 'polda-sumsel',
+    name: 'Polda Sumatera Selatan',
+    category: 'essentials',
+    subcategory: 'Security',
+    description: 'Markas Kepolisian Daerah Sumatera Selatan di Jl. Jend. Sudirman.',
+    rating: 4.5,
+    reviews: 120,
+    distance: 4.5,
+    sustainability: false,
+    image: '/images/polda.png',
+    tags: ['Police', 'Headquarters', 'Security']
+  },
+  {
+    id: 'polrestabes-plbg',
+    name: 'Polrestabes Palembang',
+    category: 'essentials',
+    subcategory: 'Security',
+    description: 'Kepolisian Resort Kota Besar Palembang di Jl. Gubernur H. Bastari, Jakabaring.',
+    rating: 4.3,
+    reviews: 200,
+    distance: 5.8,
+    sustainability: false,
+    image: '/images/polrestabes.png',
+    tags: ['Police', 'City Level', 'Public Info']
   }
 ];
