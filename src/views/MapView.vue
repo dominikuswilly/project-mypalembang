@@ -1,8 +1,8 @@
 <template>
-  <div class="near-me-view">
+  <div class="map-view">
     <header class="header animate-fade">
-      <h1 class="gradient-text">Near Me</h1>
-      <p class="subtitle">Finding locations within 5km of your position.</p>
+      <h1 class="gradient-text">City Map</h1>
+      <p class="subtitle">Explore Palembang landmarks by location.</p>
     </header>
 
     <div class="map-simulation glass animate-fade" style="animation-delay: 0.1s">
@@ -71,7 +71,7 @@ const getMarkerStyle = (spot) => {
 </script>
 
 <style scoped>
-.near-me-view {
+.map-view {
   padding: 24px;
 }
 

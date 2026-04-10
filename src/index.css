@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
 
 :root {
   --primary: #D4AF37; /* Royal Gold */
   --secondary: #8B0000; /* Crimson Songket */
   --bg: #0F172A; /* Deep Slate */
   --surface: rgba(30, 41, 59, 0.7);
-  --glass: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
   --text: #F8FAFC;
-  --text-muted: #94A3B8;
+  --text-muted: #AAB4C2; /* Improved contrast for accessibility */
   --accent-green: #10B981;
   --accent-blue: #3B82F6;
   
-  --safe-area-bottom: env(safe-area-inset-bottom);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 * {
