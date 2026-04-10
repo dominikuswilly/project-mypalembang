@@ -6,32 +6,35 @@
           <SearchIcon :size="20" />
           <input 
             type="text" 
-            placeholder="Search Palembang..." 
+            :placeholder="searchPlaceholder" 
             v-model="store.searchQuery"
           />
         </div>
-        <button class="filter-btn" @click="toggleFilters">
+        <button class="filter-btn glass" @click="toggleFilters">
           <SlidersIcon :size="20" />
         </button>
       </div>
       
-      <div class="category-pills no-scrollbar">
-        <button 
-          class="pill glass" 
-          :class="{ active: store.activeCategory === 'all' }"
-          @click="store.setActiveCategory('all')"
-        >
-          All
-        </button>
-        <button 
-          v-for="cat in store.categories" 
-          :key="cat.id" 
-          class="pill glass"
-          :class="{ active: store.activeCategory === cat.id }"
-          @click="store.setActiveCategory(cat.id)"
-        >
-          {{ cat.name }}
-        </button>
+      <div class="pills-wrapper">
+        <div class="category-pills no-scrollbar">
+          <button 
+            class="pill glass" 
+            :class="{ active: store.activeCategory === 'all' }"
+            @click="store.setActiveCategory('all')"
+          >
+            All
+          </button>
+          <button 
+            v-for="cat in store.categories" 
+            :key="cat.id" 
+            class="pill glass"
+            :class="{ active: store.activeCategory === cat.id }"
+            @click="store.setActiveCategory(cat.id)"
+          >
+            {{ cat.name }}
+          </button>
+        </div>
+        <div class="fade-right"></div>
       </div>
     </header>
 
@@ -63,6 +66,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAppStore } from '../store/appStore';
 import { Search as SearchIcon, Sliders as SlidersIcon } from 'lucide-vue-next';
@@ -70,6 +74,16 @@ import PlaceCard from '../components/PlaceCard.vue';
 
 const router = useRouter();
 const store = useAppStore();
+
+const searchPlaceholder = computed(() => {
+  const category = store.categories.find(c => c.id === store.activeCategory);
+  if (category) {
+    if (category.id === 'destinations') return 'Search landmarks or bridges...';
+    if (category.id === 'food') return 'Search pempek or cafes...';
+    return `Search in ${category.name}...`;
+  }
+  return 'Search Palembang...';
+});
 
 const viewDetail = (spot) => {
   store.setSelectedSpot(spot);
@@ -82,7 +96,7 @@ const resetFilters = () => {
 };
 
 const toggleFilters = () => {
-  // Logic for a filter modal could go here
+  // Logic for a filter modal
 };
 </script>
 
@@ -105,7 +119,7 @@ const toggleFilters = () => {
 .search-container {
   display: flex;
   gap: 12px;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 20px;
 }
 
@@ -124,6 +138,7 @@ const toggleFilters = () => {
   color: var(--text);
   width: 100%;
   font-family: inherit;
+  font-size: 15px;
 }
 
 .search-input input:focus {
@@ -131,41 +146,63 @@ const toggleFilters = () => {
 }
 
 .filter-btn {
-  background: var(--primary);
-  border: none;
-  color: var(--bg);
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: var(--primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: var(--glass-border);
+}
+
+.pills-wrapper {
+  position: relative;
+  margin: 0 -24px;
+  padding: 0 24px;
 }
 
 .category-pills {
   display: flex;
   gap: 12px;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
+}
+
+.fade-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 8px;
+  width: 60px;
+  background: linear-gradient(to right, transparent, var(--bg));
+  pointer-events: none;
 }
 
 .pill {
   white-space: nowrap;
-  padding: 8px 20px;
-  border-radius: 20px;
+  padding: 10px 22px;
+  border-radius: 24px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-muted);
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pill.active {
   background: var(--primary);
   color: var(--bg);
   border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 .results-header {
@@ -177,6 +214,7 @@ const toggleFilters = () => {
 
 .count {
   font-size: 14px;
+  font-weight: 600;
   color: var(--text-muted);
 }
 
@@ -211,11 +249,16 @@ const toggleFilters = () => {
 
 .reset-btn {
   background: none;
-  border: 1px solid var(--primary);
+  border: 1.5px solid var(--primary);
   color: var(--primary);
-  padding: 8px 24px;
-  border-radius: 20px;
-  font-weight: 600;
+  padding: 10px 28px;
+  border-radius: 24px;
+  font-weight: 700;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+  background: rgba(212, 175, 55, 0.1);
 }
 </style>
