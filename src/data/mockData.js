@@ -18,7 +18,7 @@ export const topSpots = [
     reviews: 1240,
     distance: 1.2,
     sustainability: true,
-    image: 'https://images.unsplash.com/photo-1596438459194-f97544372ef8?q=80&w=800&auto=format&fit=crop',
+    image: '/images/ampera.png',
     tags: ['Iconic', 'Landmark', 'View']
   },
   {
@@ -31,7 +31,7 @@ export const topSpots = [
     reviews: 850,
     distance: 5.4,
     sustainability: false,
-    image: 'https://images.unsplash.com/photo-1625244724123-1ee7ca90cbb4?q=80&w=800&auto=format&fit=crop',
+    image: '/images/kemaro.png',
     tags: ['Culture', 'Legend', 'Temple']
   },
   {
@@ -70,7 +70,7 @@ export const topSpots = [
     reviews: 3400,
     distance: 0.5,
     sustainability: false,
-    image: 'https://images.unsplash.com/photo-1606787366850-de63d052a2c6?q=80&w=800&auto=format&fit=crop',
+    image: '/images/pempek.png',
     tags: ['Local', 'Food', 'Signature']
   }
 ];
