@@ -4,6 +4,7 @@ import Explore from '../views/Explore.vue';
 import MapView from '../views/MapView.vue';
 import Detail from '../views/Detail.vue';
 import Events from '../views/Events.vue';
+import CategoryDetail from '../views/CategoryDetail.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -11,6 +12,7 @@ const routes = [
   { path: '/map', name: 'Map', component: MapView },
   { path: '/detail/:id', name: 'Detail', component: Detail },
   { path: '/events', name: 'Events', component: Events },
+  { path: '/category/:id', name: 'CategoryDetail', component: CategoryDetail },
 ];
 
 const router = createRouter({

@@ -5,7 +5,7 @@
       :key="cat.id" 
       class="category-item glass"
       :class="{ active: activeCategory === cat.id }"
-      @click="$emit('select', cat.id)"
+      @click="handleSelect(cat.id)"
     >
       <div class="icon-wrapper">
         <component :is="icons[cat.icon]" :size="20" />
@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import { 
   MapPin, 
   Bed, 
@@ -25,16 +26,7 @@ import {
   Calendar 
 } from 'lucide-vue-next';
 
-const icons = {
-  MapPin,
-  Bed,
-  Utensils,
-  Car,
-  ShieldCheck,
-  Calendar
-};
-
-defineProps({
+const props = defineProps({
   categories: {
     type: Array,
     required: true
@@ -45,7 +37,25 @@ defineProps({
   }
 });
 
-defineEmits(['select']);
+const emit = defineEmits(['select']);
+const router = useRouter();
+
+const icons = {
+  MapPin,
+  Bed,
+  Utensils,
+  Car,
+  ShieldCheck,
+  Calendar
+};
+
+const handleSelect = (id) => {
+  if ('vibrate' in navigator) {
+    navigator.vibrate(5);
+  }
+  emit('select', id);
+  router.push(`/category/${id}`);
+};
 </script>
 
 <style scoped>
