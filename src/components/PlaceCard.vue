@@ -1,15 +1,23 @@
 <template>
-  <div class="place-card glass" @click="$emit('click')">
+  <div class="place-card glass" :class="{ pressed: isPressed }" @mousedown="pressStart" @mouseup="pressEnd" @mouseleave="pressEnd" @click="handleClick">
     <div class="image-container">
       <img :src="spot.image" :alt="spot.name" />
       <div v-if="spot.sustainability" class="sustainability-badge">
         <LeafIcon :size="10" /> Eco-friendly
       </div>
+      <button class="favorite-btn glass" :class="{ active: store.isFavorite(spot.id) }" @click.stop="toggleFavorite">
+        <HeartIcon :size="16" :fill="store.isFavorite(spot.id) ? 'currentColor' : 'none'" />
+      </button>
     </div>
     <div class="content">
       <div class="header">
         <div class="title-section">
-          <h3 class="name">{{ spot.name }}</h3>
+          <div class="name-row">
+            <h3 class="name">{{ spot.name }}</h3>
+            <span class="status-badge" :class="{ closed: !spot.isOpen }">
+              {{ spot.isOpen ? 'Open' : 'Closed' }}
+            </span>
+          </div>
           <div class="sub-header">
             <span class="distance">{{ spot.distance }} km</span>
             <span class="dot">•</span>
@@ -29,16 +37,39 @@
 </template>
 
 <script setup>
-import { Star as StarIcon, Leaf as LeafIcon } from 'lucide-vue-next';
+import { ref } from 'vue';
+import { useAppStore } from '../store/appStore';
+import { Star as StarIcon, Leaf as LeafIcon, Heart as HeartIcon } from 'lucide-vue-next';
 
-defineProps({
+const props = defineProps({
   spot: {
     type: Object,
     required: true
   }
 });
 
-defineEmits(['click']);
+const emit = defineEmits(['click']);
+const store = useAppStore();
+const isPressed = ref(false);
+
+const pressStart = () => {
+  isPressed.value = true;
+};
+
+const pressEnd = () => {
+  isPressed.value = false;
+};
+
+const handleClick = () => {
+  if ('vibrate' in navigator) {
+    navigator.vibrate(5);
+  }
+  emit('click');
+};
+
+const toggleFavorite = () => {
+  store.toggleFavorite(props.spot.id);
+};
 </script>
 
 <style scoped>
@@ -46,11 +77,13 @@ defineEmits(['click']);
   margin-bottom: 24px;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(1);
 }
 
-.place-card:active {
-  transform: scale(0.98);
+.place-card.pressed {
+  transform: scale(0.96);
+  opacity: 0.9;
 }
 
 .image-container {
@@ -69,6 +102,29 @@ defineEmits(['click']);
 
 .place-card:hover img {
   transform: scale(1.05);
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.favorite-btn.active {
+  color: #ff4757;
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #ff4757;
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
 }
 
 .sustainability-badge {
@@ -101,12 +157,35 @@ defineEmits(['click']);
   gap: 4px;
 }
 
+.name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
 .name {
   font-size: 19px;
   font-weight: 700;
   color: var(--text);
   margin: 0;
   line-height: 1.2;
+  flex: 1;
+}
+
+.status-badge {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 12px;
+}
+
+.status-badge.closed {
+  color: #ff4757;
+  background: rgba(255, 71, 87, 0.1);
 }
 
 .sub-header {

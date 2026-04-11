@@ -29,7 +29,7 @@
             :key="cat.id" 
             class="pill glass"
             :class="{ active: store.activeCategory === cat.id }"
-            @click="store.setActiveCategory(cat.id)"
+            @click="handleCategoryClick(cat.id)"
           >
             {{ cat.name }}
           </button>
@@ -88,6 +88,14 @@ const searchPlaceholder = computed(() => {
 const viewDetail = (spot) => {
   store.setSelectedSpot(spot);
   router.push(`/detail/${spot.id}`);
+};
+
+const handleCategoryClick = (id) => {
+  if ('vibrate' in navigator) {
+    navigator.vibrate(5);
+  }
+  store.setActiveCategory(id);
+  router.push(`/category/${id}`);
 };
 
 const resetFilters = () => {

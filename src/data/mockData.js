@@ -26,6 +26,7 @@ export const topSpots = [
     rating: 4.8,
     reviews: 1240,
     distance: 1.2,
+    isOpen: true,
     sustainability: true,
     image: '/images/ampera.png',
     tags: ['Iconic', 'Landmark', 'View']
@@ -39,6 +40,7 @@ export const topSpots = [
     rating: 4.5,
     reviews: 920,
     distance: 1.0,
+    isOpen: true,
     sustainability: false,
     image: '/images/bkb.png',
     tags: ['History', 'Fortress', 'Open Space']
@@ -52,6 +54,7 @@ export const topSpots = [
     rating: 4.7,
     reviews: 580,
     distance: 8.5,
+    isOpen: true,
     sustainability: true,
     image: '/images/chengho.png',
     tags: ['Religious', 'Architecture', 'Culture']
@@ -65,6 +68,7 @@ export const topSpots = [
     rating: 4.6,
     reviews: 850,
     distance: 5.4,
+    isOpen: true,
     sustainability: false,
     image: '/images/kemaro.png',
     tags: ['Culture', 'Legend', 'Temple']
@@ -78,6 +82,7 @@ export const topSpots = [
     rating: 4.4,
     reviews: 310,
     distance: 4.2,
+    isOpen: false,
     sustainability: true,
     image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800&auto=format&fit=crop',
     tags: ['Education', 'History', 'Museum']
@@ -91,6 +96,7 @@ export const topSpots = [
     rating: 4.4,
     reviews: 620,
     distance: 7.1,
+    isOpen: true,
     sustainability: true,
     image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop',
     tags: ['Nature', 'Family', 'Pine']
@@ -104,6 +110,7 @@ export const topSpots = [
     rating: 4.9,
     reviews: 2100,
     distance: 3.8,
+    isOpen: true,
     sustainability: true,
     image: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=800&auto=format&fit=crop',
     tags: ['Religious', 'Craftsmanship', 'Art']
@@ -119,6 +126,7 @@ export const topSpots = [
     rating: 4.7,
     reviews: 1500,
     distance: 0.8,
+    isOpen: true,
     sustainability: true,
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop',
     tags: ['Luxury', 'Business', 'City Center']
@@ -132,6 +140,7 @@ export const topSpots = [
     rating: 4.6,
     reviews: 1200,
     distance: 1.5,
+    isOpen: true,
     sustainability: false,
     image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop',
     tags: ['Luxury', 'Strategic', 'Meetings']
@@ -145,6 +154,7 @@ export const topSpots = [
     rating: 4.8,
     reviews: 800,
     distance: 6.5,
+    isOpen: true,
     sustainability: true,
     image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop',
     tags: ['Luxury', 'Modern', 'Jakabaring']
@@ -158,6 +168,7 @@ export const topSpots = [
     rating: 4.5,
     reviews: 1100,
     distance: 2.5,
+    isOpen: true,
     sustainability: true,
     image: '/images/the-zuri.png',
     tags: ['Premium', 'Lifestyle', 'Shopping']
@@ -171,6 +182,7 @@ export const topSpots = [
     rating: 4.3,
     reviews: 600,
     distance: 1.6,
+    isOpen: true,
     sustainability: false,
     image: '/images/batiqa.png',
     tags: ['Value', 'Professional', 'Cozy']
@@ -186,6 +198,7 @@ export const topSpots = [
     rating: 4.7,
     reviews: 3400,
     distance: 0.5,
+    isOpen: true,
     sustainability: false,
     image: '/images/pempek.png',
     tags: ['Legendary', 'Local', 'Signature']
@@ -199,6 +212,7 @@ export const topSpots = [
     rating: 4.8,
     reviews: 4200,
     distance: 1.2,
+    isOpen: true,
     sustainability: false,
     image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop',
     tags: ['Gift', 'Popular', 'Service']
@@ -212,6 +226,7 @@ export const topSpots = [
     rating: 4.6,
     reviews: 1800,
     distance: 3.5,
+    isOpen: true,
     sustainability: true,
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop',
     tags: ['Traditional', 'Family', 'Pindang']
@@ -225,6 +240,7 @@ export const topSpots = [
     rating: 4.5,
     reviews: 950,
     distance: 1.1,
+    isOpen: true,
     sustainability: true,
     image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=800&auto=format&fit=crop',
     tags: ['Scenery', 'Premium', 'Riverfront']
@@ -238,6 +254,7 @@ export const topSpots = [
     rating: 4.7,
     reviews: 1400,
     distance: 1.8,
+    isOpen: false,
     sustainability: false,
     image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop',
     tags: ['Legendary', 'Local Fav', 'Breakfast']
@@ -251,6 +268,7 @@ export const topSpots = [
     rating: 4.6,
     reviews: 2100,
     distance: 2.2,
+    isOpen: true,
     sustainability: false,
     image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop',
     tags: ['Curry', 'Iconic', 'Snack']
@@ -266,6 +284,7 @@ export const topSpots = [
     rating: 4.2,
     reviews: 800,
     distance: 2.8,
+    isOpen: true,
     sustainability: false,
     image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop',
     tags: ['General', 'Public', '24h'],
@@ -280,6 +299,7 @@ export const topSpots = [
     rating: 4.6,
     reviews: 450,
     distance: 0.9,
+    isOpen: true,
     sustainability: true,
     image: '/images/siloam.png',
     tags: ['Modern', 'Private', '24h'],
@@ -294,6 +314,7 @@ export const topSpots = [
     rating: 4.5,
     reviews: 600,
     distance: 2.1,
+    isOpen: true,
     sustainability: false,
     image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop',
     tags: ['History', 'Reliable', '24h'],
@@ -310,6 +331,7 @@ export const topSpots = [
     rating: 4.7,
     reviews: 150,
     distance: 6.2,
+    isOpen: true,
     sustainability: true,
     image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?q=80&w=800&auto=format&fit=crop',
     tags: ['Regional', 'Corporate', 'Bank']
@@ -323,6 +345,7 @@ export const topSpots = [
     rating: 4.8,
     reviews: 300,
     distance: 3.4,
+    isOpen: true,
     sustainability: false,
     image: '/images/bca.png',
     tags: ['Main', 'Service', 'ATM']
@@ -336,6 +359,7 @@ export const topSpots = [
     rating: 4.4,
     reviews: 80,
     distance: 1.4,
+    isOpen: true,
     sustainability: false,
     image: 'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=800&auto=format&fit=crop',
     tags: ['Currency', 'Trusted', 'Central']
@@ -351,6 +375,7 @@ export const topSpots = [
     rating: 4.5,
     reviews: 120,
     distance: 4.5,
+    isOpen: true,
     sustainability: false,
     image: '/images/polda.png',
     tags: ['Police', 'Headquarters', 'Security']
@@ -364,6 +389,7 @@ export const topSpots = [
     rating: 4.3,
     reviews: 200,
     distance: 5.8,
+    isOpen: true,
     sustainability: false,
     image: '/images/polrestabes.png',
     tags: ['Police', 'City Level', 'Public Info']

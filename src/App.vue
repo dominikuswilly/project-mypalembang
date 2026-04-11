@@ -20,16 +20,16 @@ import BottomNav from './components/BottomNav.vue';
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-enter-from {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(12px) scale(0.98);
 }
 
 .fade-leave-to {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px) scale(1.02);
 }
 </style>
